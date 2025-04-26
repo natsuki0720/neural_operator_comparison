@@ -34,13 +34,13 @@
 | --- | --- |
 | データセット | PDEBench (daRUS Dataset ID 2986) |
 | ライセンス | Creative Commons **CC BY 4.0** |
-| 利用条件 | 出典表示（著者・タイトル・リポジトリ DOI）を行えば、商用・非商用を問わず利用・改変・再配布が可能 |
+| 利用条件 | 出典表示（著者・タイトル・リポジトリ DOI）を行えば，商用・非商用を問わず利用・改変・再配布が可能 |
 | 配布ページ | <https://darus.uni-stuttgart.de/dataset.xhtml?persistentId=doi:10.18419/darus-2986> |
 | 論文 | Takamoto *et al.* “PDEBench: An Extensive Benchmark for Scientific Machine Learning”, NeurIPS Datasets & Benchmarks 2022. |
 
 > **Note.** PDEBench のコード本体（データ生成・ベースライン実装）は  
-> [pdebench/PDEBench](https://github.com/pdebench/PDEBench) リポジトリで公開されており、  
-> そちらは **MIT License** です。データ部分は CC BY 4.0、コード部分は MIT という二段構成になっている点に注意してください。
+> [pdebench/PDEBench](https://github.com/pdebench/PDEBench) リポジトリで公開されており，  
+> そちらは **MIT License** です．データ部分は CC BY 4.0，コード部分は MIT という二段構成になっている点に注意してください．
 
 ---
 

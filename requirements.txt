@@ -1,0 +1,9 @@
+torch==2.2.0           # GPU/CPU はユーザ環境に依存するので+cu118は外す
+torchvision==0.17.0    # Unet 系で使用
+numpy==1.26.4
+scipy==1.12.0
+h5py==3.11.0
+matplotlib==3.8.4
+tqdm==4.66.4
+einops==0.7.0
+pyyaml==6.0.1
