@@ -243,9 +243,9 @@ FNOに座標情報を追加する設計意図は，**スペクトル変換にお
 
 今後は，より高解像度・多様な境界条件設定への拡張，ならびに**座標情報の動的学習や入力変換手法の工夫**などを通じて，FNOやUNOのさらなる性能向上に取り組むことが課題となるだろう．
 
-
-
-
+## Appendix 
+Neural Operatorの理論的背景をよび，UNOのNOとしての妥当性について以下のAppendixにて考察をまとめた．
+- [Theoretical Background on Neural Operators](Appendix.md)
 
 
 
