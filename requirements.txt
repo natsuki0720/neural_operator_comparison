@@ -1,5 +1,5 @@
-torch==2.2.0           # GPU/CPU はユーザ環境に依存するので+cu118は外す
-torchvision==0.17.0    # Unet 系で使用
+torch==2.2.0           
+torchvision==0.17.0    
 numpy==1.26.4
 scipy==1.12.0
 h5py==3.11.0

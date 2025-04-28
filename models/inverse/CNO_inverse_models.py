@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class UNOInverseClassifier(nn.Module):
+class CNOInverseClassifier(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, hidden_channels=32):
         super().__init__()
         self.encoder1 = nn.Sequential(

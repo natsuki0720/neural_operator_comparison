@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class UNO(nn.Module):
+class CNO(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, hidden_channels=32):
         super().__init__()
         self.encoder1 = nn.Sequential(
@@ -60,7 +60,7 @@ class UNO(nn.Module):
         x5 = self.decoder2(self.up2(x4))
         return x5
 
-class UNO_heavy(nn.Module):
+class CNO_heavy(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, hidden_channels=64):
         super().__init__()
         self.encoder1 = nn.Sequential(

@@ -261,35 +261,39 @@ def plot_fft_spectrum(image, title="FFT Spectrum", log_scale=True):
     plt.show()
 
 
-def compare_fft_spectra_3models(gt_images, pred1_images, pred2_images, pred3_images,
-                                pred1_label="CNN", pred2_label="UNO", pred3_label="FNO",
-                                num_samples=3):
+def compare_fft_spectra(gt_images, pred_images_list, labels_list, num_samples=3):
     """
-    ランダムなサンプルに対して、GTと3モデル出力のFFTスペクトルを可視化する。
-    各行が [GT, pred1, pred2, pred3] の構成。
-    FFTは2次元で実行し、log振幅スペクトルを可視化。
+    ランダムなサンプルに対して、GTと各モデル出力のFFTスペクトルを可視化する。
+    - gt_images: Ground Truth画像 (B, H, W)
+    - pred_images_list: 予測画像リスト（各要素が (B, H, W)）
+    - labels_list: 各予測画像に対応するラベルリスト（文字列）
+    - num_samples: 可視化するサンプル数
+
+    各行が [GT, pred1, pred2, ..., predN] の構成。
     """
+    assert len(pred_images_list) == len(labels_list), "pred_images_listとlabels_listの長さが一致していません。"
+
     indices = np.random.choice(len(gt_images), num_samples, replace=False)
-    fig, axs = plt.subplots(num_samples, 4, figsize=(20, 5 * num_samples))
+    num_models = len(pred_images_list) + 1  # +1はGT分
+
+    fig, axs = plt.subplots(num_samples, num_models, figsize=(5 * num_models, 5 * num_samples))
 
     for i, idx in enumerate(indices):
-        gt = gt_images[idx]
-        p1 = pred1_images[idx]
-        p2 = pred2_images[idx]
-        p3 = pred3_images[idx]
+        images = [gt_images[idx]] + [pred[idx] for pred in pred_images_list]
 
-        for j, img in enumerate([gt, p1, p2, p3]):
+        for j, img in enumerate(images):
             f = np.fft.fft2(img)
             fshift = np.fft.fftshift(f)
             mag = np.log1p(np.abs(fshift))
             axs[i, j].imshow(mag, cmap='magma')
             axs[i, j].axis('off')
 
-        axs[i, 0].set_title(f"GT #{idx}")
-        axs[i, 1].set_title(pred1_label)
-        axs[i, 2].set_title(pred2_label)
-        axs[i, 3].set_title(pred3_label)
+            if i == 0:
+                if j == 0:
+                    axs[i, j].set_title("GT", fontsize=12)
+                else:
+                    axs[i, j].set_title(labels_list[j-1], fontsize=12)
 
-    plt.suptitle("FFT Spectrum Comparison (log scale)", fontsize=18, y=0.92)
+    plt.suptitle("FFT Spectrum Comparison (log scale)", fontsize=18, y=1.02)
     plt.tight_layout()
     plt.show()
