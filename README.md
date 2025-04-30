@@ -37,16 +37,13 @@ conda activate noperator
 
 # 2. 依存ライブラリを導入
 #   - GPU の人: pip install torch==2.2.2+cu118 --index-url https://download.pytorch.org/whl/cu118
-#   - CPU の人: pip install torch==2.2.2+cpu
+#   - CPU の人: pip install torch==2.2.2
 pip install -r requirements.txt          # または  poetry install
-
-# 3. 16×16 グリッドで学習 → checkpoint 保存
-python train/train_cnn.py --config configs/cnn_16.yaml   # ≒ 25 秒
-python train/train_fno.py --config configs/fno_16.yaml   # ≒ 40 秒
-
-# 4. 評価 & 可視化（./results/ と ./outputs/ に図や数値が出力されます）
-python eval/evaluate.py --exp_dir outputs/16
 ```
+# 3. 訓練済みモデルによる推論
+[順問題notebook を開く](notebooks/darcy_compare.ipynb)
+[逆問題notebook を開く](notebooks/darcy_compare_inverse.ipynb)
+[座標影響notebook を開く](notebooks/darcy_compare_inverse.ipynb)
 
 ## Data License
 
