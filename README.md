@@ -41,8 +41,8 @@ conda activate noperator
 pip install -r requirements.txt          # または  poetry install
 ```
 # 3. 訓練済みモデルによる推論
-[順問題notebook を開く](notebooks/darcy_compare.ipynb)
-[逆問題notebook を開く](notebooks/darcy_compare_inverse.ipynb)
+[順問題notebook を開く](notebooks/darcy_compare.ipynb)  
+[逆問題notebook を開く](notebooks/darcy_compare_inverse.ipynb)  
 [座標影響notebook を開く](notebooks/darcy_compare_inverse.ipynb)
 
 ## Data License
