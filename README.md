@@ -25,7 +25,28 @@
 
 また，FNOでは実装上，座標情報のエンコーディングが精度に大きく寄与するとされているため，位置エンコーディングの影響を評価するために座標情報の付与の有無による精度評価を行った．
 
+# Quick Start 
+``` bash
+# 0. リポジトリを取得
+git clone https://github.com/natsuki0720/neural_operator_comparison.git
+cd neural_operator_comparison
 
+# 1. Python 環境の用意（例：conda）
+conda create -n noperator python=3.11 -y
+conda activate noperator
+
+# 2. 依存ライブラリを導入
+#   - GPU の人: pip install torch==2.2.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+#   - CPU の人: pip install torch==2.2.2+cpu
+pip install -r requirements.txt          # または  poetry install
+
+# 3. 16×16 グリッドで学習 → checkpoint 保存
+python train/train_cnn.py --config configs/cnn_16.yaml   # ≒ 25 秒
+python train/train_fno.py --config configs/fno_16.yaml   # ≒ 40 秒
+
+# 4. 評価 & 可視化（./results/ と ./outputs/ に図や数値が出力されます）
+python eval/evaluate.py --exp_dir outputs/16
+```
 
 ## Data License
 
