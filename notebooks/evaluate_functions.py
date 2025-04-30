@@ -42,18 +42,25 @@ def compute_high_freq_error(gt, pred, cutoff=0.25):
 
     return np.mean(hf_errors)
 
-def measure_inference_time(model, input, warmup=1, repeat=5):
+def measure_inference_time(model, input, warmup=10, repeat=100):
+    model.eval()
     with torch.no_grad():
-        # warm-up
         for _ in range(warmup):
             _ = model(input)
 
-        torch.cuda.synchronize()
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
+
         start = time.time()
         for _ in range(repeat):
             _ = model(input)
-        torch.cuda.synchronize()
-        return (time.time() - start) / repeat
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
+
+        end = time.time()
+
+    return (end - start) / repeat
+
 
 def evaluate(pred, true):
     mse = np.mean((pred - true) ** 2)
