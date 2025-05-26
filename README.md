@@ -2,6 +2,10 @@
 
 ---
 
+QiitaにFNOの理論と具体的な計算処理について解説した日本語記事を掲載していますので，必要に応じてご覧ください．
+[FNO解説記事はこちら](https://qiita.com/yamashita_natsuki/items/05515ce7a6ccf5786ad5)
+
+
 ## 背景と目的
 
 **Neural Operator（NO）** は，関数空間間の写像（すなわち作用素）を直接学習するニューラルネットワークとして注目されている．特に，偏微分方程式（PDE）における発展写像や境界条件付き解空間のモデリングにおいて，その応用可能性が広がっている．
@@ -276,6 +280,6 @@ FNOに座標情報を追加する設計意図は，**スペクトル変換にお
 ## Appendix 
 Neural Operatorの理論的背景をまとめた．
 - [Theoretical Background on Neural Operators](Appendix.md)
-
+- [Qiita解説記事](https://qiita.com/yamashita_natsuki/items/05515ce7a6ccf5786ad5)
 
 
